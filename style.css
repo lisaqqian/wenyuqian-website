@@ -1,0 +1,267 @@
+/* wenyuqian.com — shared styles */
+
+:root {
+  --accent:  #7b56c2;   /* soft lavender-purple */
+  --ink:     #0d0d0d;
+  --muted:   #888888;
+  --faint:   #e8e8e8;
+  --bg:      #ffffff;
+  --max:     680px;
+}
+
+/* ---------- reset ---------- */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { font-size: 16px; }
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+
+  /* the one accent: a thin lavender line across the very top */
+  border-top: 3px solid var(--accent);
+}
+
+a { color: inherit; text-decoration: none; }
+a:hover { color: var(--accent); }
+a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
+
+/* ---------- layout ---------- */
+.page {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 60px 28px 100px;
+}
+
+/* ---------- nav ---------- */
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 80px;
+}
+
+.nav-home {
+  font-family: 'Syne', sans-serif;
+  font-weight: 700;
+  font-size: 0.9rem;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+}
+
+.nav-links {
+  display: flex;
+  gap: 24px;
+  list-style: none;
+}
+
+.nav-links a {
+  font-size: 0.88rem;
+  color: var(--muted);
+  transition: color 0.15s ease;
+}
+
+.nav-links a:hover,
+.nav-links a[aria-current="page"] { color: var(--ink); }
+
+/* ---------- home hero ---------- */
+.hero {
+  position: relative;
+  margin-bottom: 64px;
+}
+
+.hero-name {
+  font-family: 'Syne', sans-serif;
+  font-weight: 800;
+  font-size: clamp(2.8rem, 9vw, 4.8rem);
+  line-height: 1.0;
+  letter-spacing: -0.03em;
+  color: var(--ink);
+}
+
+.hero-sub {
+  font-family: 'Space Mono', monospace;
+  font-size: clamp(0.82rem, 2.2vw, 0.96rem);
+  color: var(--muted);
+  margin-top: 14px;
+  letter-spacing: -0.01em;
+}
+
+/* three stars — real PNG, positioned top-right of hero */
+.stars {
+  position: absolute;
+  top: -8px;
+  right: 0;
+  width: 110px;   /* adjust if stars feel too big or small */
+  height: auto;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* homepage one-liner */
+.one-liner {
+  max-width: 460px;
+  color: var(--muted);
+  font-size: 0.97rem;
+  line-height: 1.65;
+  margin-top: 48px;
+}
+
+/* ---------- about page ---------- */
+.about-body {
+  max-width: 540px;
+}
+
+.about-body p {
+  color: var(--muted);
+  font-size: 0.97rem;
+  margin-bottom: 14px;
+}
+
+.about-body p:last-child { margin-bottom: 0; }
+
+.about-body a {
+  color: var(--muted);
+  border-bottom: 1px solid var(--faint);
+  transition: border-color 0.15s ease, color 0.15s ease;
+}
+
+.about-body a:hover { color: var(--ink); border-color: var(--ink); }
+
+/* collage placeholder — swap in your real photos later */
+.collage-placeholder {
+  margin-top: 48px;
+  aspect-ratio: 16 / 7;
+  border: 1px dashed var(--faint);
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Space Mono', monospace;
+  font-size: 0.75rem;
+  color: var(--faint);
+  letter-spacing: 0.05em;
+}
+.page-title {
+  font-family: 'Syne', sans-serif;
+  font-weight: 800;
+  font-size: clamp(1.8rem, 6vw, 2.8rem);
+  letter-spacing: -0.03em;
+  margin-bottom: 48px;
+}
+
+.page-title span {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.6em;
+  font-weight: 400;
+  color: var(--muted);
+  display: block;
+  margin-bottom: 6px;
+  letter-spacing: 0;
+}
+
+/* ---------- books ---------- */
+.book-section { margin-bottom: 52px; }
+
+.book-section-label {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.72rem;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--faint);
+}
+
+.book-list { list-style: none; }
+
+.book-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 16px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--faint);
+}
+
+.book-item:last-child { border-bottom: none; }
+
+.book-title { font-size: 0.97rem; }
+
+.book-author {
+  font-size: 0.85rem;
+  color: var(--muted);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.book-note {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.75rem;
+  color: var(--muted);
+  margin-top: 4px;
+}
+
+/* ---------- not-projects ---------- */
+.entry-list { list-style: none; }
+
+.entry {
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  gap: 0 28px;
+  padding: 24px 0;
+  border-bottom: 1px solid var(--faint);
+  align-items: start;
+}
+
+.entry:last-child { border-bottom: none; }
+
+.entry-status {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+  padding-top: 3px; /* align with text */
+}
+
+.entry-status.worked    { color: var(--accent); }
+.entry-status.paused    { color: var(--muted); }
+.entry-status.didnt     { color: #bbb; }
+
+.entry-title {
+  font-size: 0.97rem;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.entry-desc {
+  font-size: 0.9rem;
+  color: var(--muted);
+  line-height: 1.55;
+}
+
+/* ---------- footer ---------- */
+footer {
+  margin-top: 80px;
+  padding-top: 20px;
+  border-top: 1px solid var(--faint);
+  font-family: 'Space Mono', monospace;
+  font-size: 0.72rem;
+  color: var(--muted);
+}
+
+/* ---------- responsive ---------- */
+@media (max-width: 500px) {
+  .page { padding: 40px 20px 80px; }
+  nav { margin-bottom: 56px; }
+  .entry { grid-template-columns: 80px 1fr; gap: 0 16px; }
+  .stars { top: auto; bottom: 8px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; animation: none !important; }
+}
