@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Reading — Wenyu Qian</title>
+  <title>Shelf — Wenyu Qian</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,7 +17,7 @@
     <a class="nav-home" href="index.html">wenyuqian.com</a>
     <ul class="nav-links">
       <li><a href="about.html">about</a></li>
-      <li><a href="books.html">shelf</a></li>
+      <li><a href="books.html" aria-current="page">shelf</a></li>
       <li><a href="not-projects.html">not projects</a></li>
       <li><a href="mailto:wenyuqian22@gmail.com">email</a></li>
     </ul>
@@ -25,63 +25,58 @@
 
   <h1 class="page-title">
     <span>what I'm reading</span>
-    books
+    shelf
   </h1>
 
-  <!--
-    HOW TO UPDATE:
-    - Add or remove <li class="book-item"> entries as needed.
-    - The <span class="book-note"> line is optional — delete it if you have nothing to say.
-    - Move books from "currently reading" to "recently finished" when you're done.
-  -->
+  <details open>
+    <summary class="year-label">2026</summary>
 
-  <section class="book-section">
-    <p class="book-section-label">currently reading</p>
-    <ul class="book-list">
+    <section class="book-section">
+      <p class="book-section-label">currently reading</p>
+      <ul class="book-list">
 
-      <li class="book-item">
-        <div>
-          <div class="book-title">Silver Elite</div>
-          <!-- <div class="book-note">insert a thought if you want</div> -->
-        </div>
-        <span class="book-author">Victoria Aveyard</span>
-      </li>
-
-      <li class="book-item">
-        <div>
-          <div class="book-title">Golden Son</div>
-          <!-- <div class="book-note">insert a thought if you want</div> -->
-        </div>
-        <span class="book-author">Pierce Brown</span>
-      </li>
-
-    </ul>
-  </section>
-
-  <section class="book-section">
-    <p class="book-section-label">recently finished</p>
-    <ul class="book-list">
-
-      <!--
-        Add books you've finished here. Example:
         <li class="book-item">
           <div>
-            <div class="book-title">Red Rising</div>
-            <div class="book-note">basically perfect</div>
+            <div class="book-title">
+              <a href="https://www.goodreads.com/search?q=silver+elite+victoria+aveyard" target="_blank" rel="noopener">Silver Elite</a>
+            </div>
+          </div>
+          <span class="book-author">Victoria Aveyard</span>
+        </li>
+
+        <li class="book-item">
+          <div>
+            <div class="book-title">
+              <a href="https://www.goodreads.com/search?q=golden+son+pierce+brown" target="_blank" rel="noopener">Golden Son</a>
+            </div>
           </div>
           <span class="book-author">Pierce Brown</span>
         </li>
-      -->
 
-      <li class="book-item">
-        <div>
-          <div class="book-title">add something here</div>
-        </div>
-        <span class="book-author">—</span>
-      </li>
+      </ul>
+    </section>
 
-    </ul>
-  </section>
+    <section class="book-section">
+      <p class="book-section-label">recently finished</p>
+      <ul class="book-list">
+
+        <!--
+          HOW TO ADD BOOKS:
+          Copy one of the <li> blocks below and fill in the title, Goodreads link, and author.
+          For the Goodreads link, just replace the search query with your book's title.
+        -->
+
+        <li class="book-item">
+          <div>
+            <div class="book-title">add something here</div>
+          </div>
+          <span class="book-author">—</span>
+        </li>
+
+      </ul>
+    </section>
+
+  </details>
 
   <footer>
     wenyuqian.com — 2026
