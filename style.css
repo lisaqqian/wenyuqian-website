@@ -96,7 +96,7 @@ nav {
   position: absolute;
   top: -8px;
   right: 0;
-  width: 260px;   /* adjust if stars feel too big or small */
+  width: 200px;   /* adjust if stars feel too big or small */
   height: auto;
   pointer-events: none;
   user-select: none;
