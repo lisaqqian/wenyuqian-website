@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shelf — Wenyu Qian</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Space+Mono&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main class="page">
+
+  <nav>
+    <a class="nav-home" href="index.html">wenyuqian.com</a>
+    <ul class="nav-links">
+      <li><a href="about.html">about</a></li>
+      <li><a href="books.html" aria-current="page">shelf</a></li>
+      <li><a href="not-projects.html">not projects</a></li>
+      <li><a href="mailto:wenyuqian22@gmail.com">email</a></li>
+    </ul>
+  </nav>
+
+  <h1 class="page-title">
+    <span><a href="https://app.thestorygraph.com/profile/lisaqqian" target="_blank" rel="noopener">@lisaqqian</a> on storygraph</span>
+    shelf
+  </h1>
+
+  <details open>
+    <summary class="year-label">2026</summary>
+
+    <section class="book-section">
+      <p class="book-section-label">reading</p>
+      <ul class="book-list" id="reading-list"></ul>
+    </section>
+
+    <section class="book-section">
+      <p class="book-section-label">finished</p>
+      <ul class="book-list" id="finished-list"></ul>
+    </section>
+
+    <section class="book-section">
+      <p class="book-section-label">dropped</p>
+      <ul class="book-list" id="dropped-list"></ul>
+    </section>
+
+  </details>
+
+  <footer>
+    wenyuqian.com — 2026
+  </footer>
+
+</main>
+
+<!-- load book data files -->
+<script src="reading.js"></script>
+<script src="finished.js"></script>
+<script src="dropped.js"></script>
+
+<script>
+  // Renders a list of books into a <ul> element
+  function renderBooks(books, listId) {
+    const ul = document.getElementById(listId);
+    if (!books || books.length === 0) {
+      ul.innerHTML = '<li class="book-item"><div><div class="book-title" style="color:#bbb">nothing here yet</div></div></li>';
+      return;
+    }
+    books.forEach(book => {
+      const star = book.fave
+        ? `<img src="star.png" alt="favorite" style="width:14px;vertical-align:middle;margin-left:6px;">`
+        : '';
+      ul.innerHTML += `
+        <li class="book-item">
+          <div>
+            <div class="book-title">
+              <a href="${book.url}" target="_blank" rel="noopener">${book.title}</a>${star}
+            </div>
+          </div>
+          <span class="book-author">${book.author}</span>
+        </li>`;
+    });
+  }
+
+  renderBooks(reading,  'reading-list');
+  renderBooks(finished, 'finished-list');
+  renderBooks(dropped,  'dropped-list');
+</script>
+
+</body>
+</html>
