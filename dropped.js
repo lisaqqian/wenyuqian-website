@@ -3,6 +3,7 @@
 
 const dropped = [
   // { title: "Example Book", author: "Author Name", url: "https://app.thestorygraph.com/books/search?q=example", fave: false },
+  { title: "The Night circus", author: "Erin Morgenstern", url: "https://app.thestorygraph.com/books/b5e3d973-9cbb-4fa5-aa80-ab0d305c7ddc", fave: false },
   { title: "Onyx Storm", author: "Rebecca Yarros", url: "https://app.thestorygraph.com/books/29ee0457-ee9a-44c9-ab8d-6dfea65ead1e", fave: false },   
   { title: "Smoke and Mirrors: Short Fictions and Illusions", author: "Neil Gaiman", url: "https://app.thestorygraph.com/books/b9ad367f-ad1f-4d46-80ae-42ae8e586fa0", fave: false },
   { title: "The Unwanteds", author: "Lisa McMann", url: "https://app.thestorygraph.com/books/2f9c9f73-e70d-4e19-87fd-6d67d91536c4", fave: false },
