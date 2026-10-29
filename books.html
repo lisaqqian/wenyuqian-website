@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bookshelf — Wenyu Qian</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&amp;family=Instrument+Sans:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <a class="nav-home" href="index.html">wenyuqian.com</a>
+  <nav aria-label="Main">
+    <a href="books.html" aria-current="page">Bookshelf</a>
+    <a href="not-projects.html">Not projects</a>
+    <a href="index.html#contact">Contact</a>
+  </nav>
+</header>
+
+<main class="page">
+  <p class="eyebrow"><a href="https://app.thestorygraph.com/profile/lisaqqian" target="_blank" rel="noopener">@lisaqqian on StoryGraph</a></p>
+  <h1 class="page-title">Story time</h1>
+  <p class="lede">What I'm reading, what I finished, and what I gave up on.</p>
+
+  <div class="content">
+    <p class="legend"><img class="fave" src="star.png" alt=""> marks a favorite</p>
+
+    <details class="year" open>
+      <summary>2026</summary>
+
+      <section class="book-section">
+        <p class="section-label">Reading</p>
+        <ul class="book-list" id="reading-list"></ul>
+      </section>
+
+      <section class="book-section">
+        <p class="section-label">Finished</p>
+        <ul class="book-list" id="finished-list"></ul>
+      </section>
+
+      <section class="book-section">
+        <p class="section-label">Dropped</p>
+        <ul class="book-list" id="dropped-list"></ul>
+      </section>
+    </details>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <hr>
+  <p>© 2026 Wenyu Qian</p>
+</footer>
+
+<!-- book data files (same as before) -->
+<script src="reading.js"></script>
+<script src="finished.js"></script>
+<script src="dropped.js"></script>
+
+<script>
+  // Renders a list of books into a <ul>. Each book: { title, author, url, fave }
+  function renderBooks(books, listId) {
+    const ul = document.getElementById(listId);
+    if (!books || books.length === 0) {
+      const li = document.createElement('li');
+      li.className = 'book-item';
+      li.innerHTML = '<span class="book-empty">nothing here yet</span>';
+      ul.appendChild(li);
+      return;
+    }
+    books.forEach(book => {
+      const li = document.createElement('li');
+      li.className = 'book-item';
+
+      const title = document.createElement('span');
+      title.className = 'book-title';
+      const link = document.createElement(book.url ? 'a' : 'span');
+      if (book.url) {
+        link.href = book.url;
+        link.target = '_blank';
+        link.rel = 'noopener';
+        link.className = 'inline';
+      }
+      link.textContent = book.title;
+      title.appendChild(link);
+
+      if (book.fave) {
+        const star = document.createElement('img');
+        star.src = 'star.png';
+        star.alt = 'favorite';
+        star.className = 'fave';
+        title.appendChild(star);
+      }
+
+      const author = document.createElement('span');
+      author.className = 'book-author';
+      author.textContent = book.author || '';
+
+      li.append(title, author);
+      ul.appendChild(li);
+    });
+  }
+
+  renderBooks(typeof reading  !== 'undefined' ? reading  : [], 'reading-list');
+  renderBooks(typeof finished !== 'undefined' ? finished : [], 'finished-list');
+  renderBooks(typeof dropped  !== 'undefined' ? dropped  : [], 'dropped-list');
+</script>
+
+</body>
+</html>
